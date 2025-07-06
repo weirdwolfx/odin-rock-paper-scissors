@@ -14,38 +14,17 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice, humanScore, computerScore) {
     if (humanChoice == computerChoice) {
         console.log("Tie\n");
-        return `${humanScore + " " + computerScore}`; // exit code early
     }
-
-    if (humanChoice == "rock") {
-        if (computerChoice == "paper") {
-            console.log("You lose! Paper beats rock.\n");
-            computerScore++;
-        }
-        else {
-            console.log("You win! Rock beats scissors.\n")
-            humanScore++;
-        }
-    } 
-    else if (humanChoice == "paper") {
-        if (computerChoice == "rock") {
-            console.log("You win! Paper beats rock.\n");
-            humanScore++;
-        }
-        else {
-            console.log("You lose! Scissors beat paper.\n");
-            computerScore++;
-        }
+    else if ((humanChoice == "rock" && computerChoice == "scissors") || 
+        (humanChoice == "paper" && computerChoice == "rock") || 
+        (humanChoice == "scissors" && computerChoice == "paper")) 
+    {
+        console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+        humanScore++;
     }
     else {
-        if (computerChoice == "rock") {
-            console.log("You lose! Rock beats scissors.\n");
-            computerScore++;
-        }
-        else {
-            console.log("You win! Scissors beat paper.\n");
-            humanScore++;
-        }
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+        computerScore++;
     }
     return `${humanScore + " " + computerScore}`;
 }
