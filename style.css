@@ -4,11 +4,25 @@
     box-sizing: border-box;
 }
 
-.emoji {
-    font-size: 150px;
-}
-
 .playGround {
     display: flex;
+}
 
+.emoji {
+    font-size: 10rem;
+    display: flex;
+    text-indent: -0.08em;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+    line-height: 1.2em;
+    cursor: pointer;
+}
+
+.emoji.scissor {
+    line-height: 1.28em;
+}
+
+.emoji:hover {
+    background-color: beige;
 }
