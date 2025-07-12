@@ -2,10 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: 1px solid red;
+}
+
+body {
+    text-align: center;
 }
 
 .playGround {
     display: flex;
+    justify-content: center;
 }
 
 .emoji {
@@ -29,9 +35,5 @@
 
 .score {
     display: flex;
-}
-
-.player-score,
-.computer-score {
-    text-align: center;
+    justify-content: center;
 }

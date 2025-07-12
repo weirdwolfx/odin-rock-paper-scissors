@@ -8,13 +8,8 @@ function getComputerChoice() {
     else return "scissors";
 }
 
-function updateScore() {
-    playerScoreDisplay.textContent = playerScore;
-    computerScoreDisplay.textContent = computerScore;
-}
-
-function playRound(playerChoice, computerChoice) {
-    if (playerChoice == computerChoice) return;
+function decideWinner(playerChoice, computerChoice, playerScore, computerScore) {
+    if (playerChoice == computerChoice) return [playerScore, computerScore];
 
     if ((playerChoice == "rock" && computerChoice == "scissors") ||
         (playerChoice == "paper" && computerChoice == "rock") ||
@@ -24,25 +19,35 @@ function playRound(playerChoice, computerChoice) {
     else {
         computerScore++;
     }
-    
-    updateScore();
+    return [playerScore, computerScore];
 }
 
-let playerScore = 0;
-let computerScore = 0;
+function playGame() {
+    let playerScore = 0;
+    let computerScore = 0;
 
-const playerScoreDisplay = document.querySelector('#player');
-const computerScoreDisplay = document.querySelector('#computer');
-const playGround = document.querySelector('.playGround');
+    const playerScoreDisplay = document.querySelector('#player');
+    const computerScoreDisplay = document.querySelector('#computer');
+    const playGround = document.querySelector('.playGround');
 
-updateScore();
+    function playRound(e) {
+        if (playerScore >= MAX_SCORE || computerScore >= MAX_SCORE) {
+            playGround.removeEventListener('click', playRound);
+            return;
+        }
 
-playGround.addEventListener('click', e => {
-    const playerChoice = e.target.classList[1];
-    const computerChoice = getComputerChoice();
+        const playerChoice = e.target.classList[1];
+        const computerChoice = getComputerChoice();
 
-    console.log(computerChoice, playerChoice);
+        console.log(playerChoice, computerChoice);
 
-    playRound(playerChoice, computerChoice);
-});
+        [playerScore, computerScore] = decideWinner(playerChoice, computerChoice, playerScore, computerScore);
 
+        playerScoreDisplay.textContent = playerScore;
+        computerScoreDisplay.textContent = computerScore;
+    }
+    
+    playGround.addEventListener('click', playRound);
+
+}
+playGame();
