@@ -26,3 +26,12 @@
 .emoji:hover {
     background-color: beige;
 }
+
+.score {
+    display: flex;
+}
+
+.player-score,
+.computer-score {
+    text-align: center;
+}
