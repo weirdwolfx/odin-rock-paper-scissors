@@ -48,17 +48,13 @@ function playGame() {
     let playerScore = 0;
     let computerScore = 0;
 
+    const heading = document.querySelector('.title');
     const playerScoreDisplay = document.querySelector('#player');
     const computerScoreDisplay = document.querySelector('#computer');
     const playGround = document.querySelector('.playGround');
 
     function playRound(e) {
         let winner = null;
-
-        if (playerScore >= MAX_SCORE || computerScore >= MAX_SCORE) {
-            playGround.removeEventListener('click', playRound);
-            return;
-        }
 
         const playerChoice = e.target.id;
         const computerChoice = getComputerChoice();
@@ -69,6 +65,17 @@ function playGame() {
         computerScoreDisplay.textContent = computerScore;
 
         roundLog(playerChoice, computerChoice, winner);
+
+        if (playerScore >= MAX_SCORE || computerScore >= MAX_SCORE) {
+            playGround.removeEventListener('click', playRound);
+
+            if (playerScore == MAX_SCORE) {
+                heading.textContent = "You Won!";
+            }
+            else {
+                heading.textContent = "Computer Won!";
+            }
+        }
     }
 
     playGround.addEventListener('click', playRound);

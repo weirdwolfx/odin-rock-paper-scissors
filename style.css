@@ -6,10 +6,9 @@
 
 body {
     text-align: center;
-    /* background-color: rgb(204, 98, 226); */
     display: flex;
     justify-content: center;
-    
+    background-color: bisque;
 }
 
 .main-container {
@@ -32,7 +31,7 @@ body {
 }
 
 .emoji {
-    font-size: 10rem;
+    font-size: min(10rem, 20vw);
     display: flex;
     text-indent: -0.08em;
     width: 1.2em;
@@ -40,6 +39,7 @@ body {
     border-radius: 50%;
     line-height: 1.2em;
     cursor: pointer;
+    user-select: none;
 }
 
 .emoji.scissor {
@@ -47,7 +47,11 @@ body {
 }
 
 .emoji:hover {
-    background-color: rgba(230, 185, 239, 0.2);
+    background-color:antiquewhite;
+}
+
+.emoji:active {
+    background-color:rgba(128, 128, 128, 0.15);
 }
 
 .score {
@@ -58,15 +62,19 @@ body {
 }
 
 .title {
-    font-size: 3rem;
+    font-size: min(3rem, 15vh);
 }
 
 .game-log {
     display: flex;
     font-size: 2rem;
+    align-self:flex-start;
     margin-left: 50px;
     margin-top: 100px;
     gap: 50px;
+    background-color:cornsilk;
+    padding: 0.75em;
+    border-radius: 12px;
 }
 
 .log {
@@ -78,10 +86,11 @@ body {
     margin-top: 0.3em;
     font-size: 1.5rem;
     font-weight: normal;
+    padding: 0.2em;
 }
 
 .winner {
-    border-radius: 12px;
+    border-radius: 10px;
     background-color: lime;
 }
 
