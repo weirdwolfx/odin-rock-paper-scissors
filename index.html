@@ -9,27 +9,32 @@
 </head>
 
 <body>
-    <h1>Rock Paper Scissors</h1>
+    <div class="main-container">
+        <h1 class="title">Rock Paper Scissors</h1>
 
-    <div class="playGround">
-        <span class="emoji rock">&#9994;&#x1F3FB;</span>
-        <span class="emoji paper">&#9995;&#x1F3FB;</span>
-        <span class="emoji scissors">&#9996;&#x1F3FB;</span>
+        <div class="playGround">
+            <span class="emoji rock" id="Rock">&#9994;&#x1F3FB;</span>
+            <span class="emoji paper" id="Paper">&#9995;&#x1F3FB;</span>
+            <span class="emoji scissors" id="Scissors">&#9996;&#x1F3FB;</span>
+        </div>
+
+        <div class="score">
+            <div class="player-score">
+                <p id="player">0</p>
+                <p>You</p>
+            </div>
+            <div class="colon">:</div>
+            <div class="computer-score">
+                <p id="computer">0</p>
+                <p>Computer</p>
+            </div>
+        </div>
     </div>
 
-    <div class="score">
-        <div class="player-score">
-            <p id="player">0</p>
-            <p>You</p>
-        </div>
-        <div class="colon">:</div>
-        <div class="computer-score">
-            <p id="computer">0</p>
-            <p>Computer</p>
-        </div>
+    <div class="game-log">
+        <div class="log player">You</div>
+        <div class="log computer">Computer</div>
     </div>
-
-
 
     <script src="./main.js"></script>
 </body>
