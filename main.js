@@ -67,7 +67,7 @@ function playGame() {
         roundLog(playerChoice, computerChoice, winner);
 
         if (playerScore >= MAX_SCORE || computerScore >= MAX_SCORE) {
-            playGround.removeEventListener('click', playRound);
+            playGround.removeEventListener('mouseup', playRound);
 
             if (playerScore == MAX_SCORE) {
                 heading.textContent = "You Won!";
@@ -78,7 +78,7 @@ function playGame() {
         }
     }
 
-    playGround.addEventListener('click', playRound);
+    playGround.addEventListener('mouseup', playRound);
 
 }
 playGame();
